@@ -10,6 +10,7 @@ void sync(GameState *state_ptr)
     sync_remaining_sweeps(state_ptr);
     lose_if_mine_swept(state_ptr);
     win_if_all_swept(state_ptr);
+    disable_debug_while_playing(state_ptr);
 }
 
 void fix_swept_flags(GameState *state_ptr)
@@ -54,4 +55,10 @@ void win_if_all_swept(GameState *state_ptr)
         state_ptr->show_all = true;
         state_ptr->stats.wins++;
     }
+}
+
+void disable_debug_while_playing(GameState *state_ptr)
+{
+    if (state_ptr->step == GAME_PAGE_PLAYING)
+        state_ptr->show_all = false;
 }
