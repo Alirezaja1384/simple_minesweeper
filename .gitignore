@@ -1,4 +1,3 @@
-*
-!*.c
-!*.h
-!.gitignore
+*.zip
+build/
+.vscode/
